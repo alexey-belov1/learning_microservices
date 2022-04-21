@@ -2,6 +2,8 @@ server:
   port: 8082
 
 spring:
+  application:
+    name: order
   datasource:
     url: jdbc:h2:mem:ordersdb
     driverClassName: org.h2.Driver

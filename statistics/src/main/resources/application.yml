@@ -2,6 +2,8 @@ server:
   port: 8083
 
 spring:
+  application:
+    name: statistic
   datasource:
     url: jdbc:h2:mem:statisticsdb
     driverClassName: org.h2.Driver
