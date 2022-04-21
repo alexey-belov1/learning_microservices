@@ -1,8 +1,7 @@
 package ru.job4j.domain;
 
+import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,8 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "orders")
-@Getter
-@Setter
+@Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Order {
 

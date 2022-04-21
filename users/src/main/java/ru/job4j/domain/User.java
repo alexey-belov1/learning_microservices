@@ -1,5 +1,6 @@
 package ru.job4j.domain;
 
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,8 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
-@Getter
-@Setter
+@Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 
 public class User {

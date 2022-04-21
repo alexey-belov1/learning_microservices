@@ -1,5 +1,6 @@
 package ru.job4j.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -10,6 +11,7 @@ import ru.job4j.repository.UserRepository;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 public class UserService {
 
@@ -45,6 +47,9 @@ public class UserService {
             throw new RuntimeException();
         }
 
-        return this.userRepository.save(user);
+        User storedUser = this.userRepository.save(user);
+        log.info("User is stored id db = {}", storedUser);
+
+        return storedUser;
     }
 }

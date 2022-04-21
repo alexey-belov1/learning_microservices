@@ -17,7 +17,6 @@ public class OrderEventHandler {
 
     @KafkaListener(topics = {"${kafka.order-event-topic}"}, containerFactory = "messageKafkaListenerFactory")
     public void consume(final OrderEvent event) {
-        log.info("OrderEvent received: {}", event.getId());
         this.statisticService.update(event);
     }
 }

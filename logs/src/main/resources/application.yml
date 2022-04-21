@@ -1,0 +1,12 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: logs
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: app.2
+
+kafka.log-topic: logs

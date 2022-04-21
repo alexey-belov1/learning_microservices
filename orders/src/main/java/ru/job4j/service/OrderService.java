@@ -1,5 +1,6 @@
 package ru.job4j.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -10,6 +11,7 @@ import ru.job4j.repository.OrderRepository;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 public class OrderService {
 
@@ -40,6 +42,7 @@ public class OrderService {
     public Order save(Order order) {
         Order storedOrder = this.orderRepository.save(order);
         this.orderEventPub.orderCreate(storedOrder);
+        log.info("Order create = {}", storedOrder);
         return storedOrder;
     }
 }

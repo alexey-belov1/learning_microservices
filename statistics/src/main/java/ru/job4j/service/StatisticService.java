@@ -1,5 +1,6 @@
 package ru.job4j.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -11,6 +12,7 @@ import ru.job4j.repository.StatisticRepository;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 public class StatisticService {
 
@@ -53,6 +55,8 @@ public class StatisticService {
             statistic.setAverageCost((statistic.getAverageCost() + event.getCost()) / 2.0);
             statistic.setCountOrder(statistic.getCountOrder() + 1);
         }
+
+        log.info("Statistic updated: {}", statistic);
         return this.statisticRepository.save(statistic);
     }
 }
